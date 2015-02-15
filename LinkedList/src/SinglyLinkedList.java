@@ -131,6 +131,35 @@ public class SinglyLinkedList<T extends Number> {
         }
     }
 
+    public T findKthLastElement(final int k_index){
+        // 1 = last element, 2 = 2nd to last element, so on...
+        if (k_index < 0 || k_index > size)
+            return null;
+        if (k_index == 1)
+            return tail.data;
+
+        // have to search for the element
+        Node<T> current = head;
+        int list_index = size;
+
+        while(current != tail){
+            if(list_index == k_index)
+                return current.data;
+            else{
+                --list_index;
+                current = current.next;
+            }
+        }
+
+        return null; // an error happened
+    }
+
+    public void clear(){
+        size = 0;
+        head = null;
+        tail = null;
+    }
+
     public void print(){
         Node<T> current = head;
         StringBuffer buff = new StringBuffer();

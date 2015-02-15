@@ -9,6 +9,7 @@ public class TestLinkedList {
         testAppendAndDelete(testLinked);
         testRemoveDuplicates(testLinked);
         testRemoveDuplicatesNoBuffer(testLinked);
+        findKthLastElement(testLinked);
     }
 
     public static void testAppendAndDelete(SinglyLinkedList<Integer> testLinked){
@@ -57,6 +58,15 @@ public class TestLinkedList {
 
         testLinked.removeDuplicatesNoBuffer();
         assert(testLinked.toString().equals("[1, 2, 3, 4, 5]"));
+    }
+
+    public static void findKthLastElement(final SinglyLinkedList<Integer> testLinked){
+        System.out.println("\n***Test Find Kth Last Element***");
+        assert (testLinked.findKthLastElement(1).equals(5));
+        assert (testLinked.findKthLastElement(2).equals(4));
+        assert (testLinked.findKthLastElement(3).equals(3));
+        assert (testLinked.findKthLastElement(4).equals(2));
+        assert (testLinked.findKthLastElement(5).equals(1));
     }
 
     public static void populate(SinglyLinkedList<Integer> testLinked){
